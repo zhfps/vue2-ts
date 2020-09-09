@@ -7,12 +7,13 @@
     </el-row>
     <el-row>
       <el-container>
-        <el-aside>
+        <el-aside class="v-aside">
           <v-menu
             :is-collapse="isCollapse"
           />
         </el-aside>
         <el-main>
+          <v-tags />
           <router-view />
         </el-main>
       </el-container>
@@ -23,13 +24,21 @@
 import { Component, Vue } from 'vue-property-decorator'
 import VMenu from './components/VMenu.vue'
 import VHeader from './components/VHeader.vue'
+import VTags from './components/VTags.vue'
 @Component({
   components: {
     VMenu,
-    VHeader
+    VHeader,
+    VTags
   }
 })
 export default class Layout extends Vue{
   private isCollapse = false
 }
 </script>
+<style lang="less" scoped>
+.v-aside{
+  height: calc(100vh - 44px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+}
+</style>
