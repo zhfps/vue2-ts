@@ -112,6 +112,7 @@ export default class VMenu extends Vue{
  .v-menu{
    max-height: calc(100vh - 44px);
    overflow-y: auto;
+   overflow-x: hidden;
    
  }
 </style>

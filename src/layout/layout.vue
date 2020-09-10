@@ -2,12 +2,17 @@
   <div>
     <el-row>
       <el-col :span="24">
-        <v-header />
+        <v-header
+          @change="changMenu"
+        />
       </el-col>
     </el-row>
     <el-row>
       <el-container>
-        <el-aside class="v-aside">
+        <el-aside
+          class="v-aside"
+          :style="{width: sideWidth}"
+        >
           <v-menu
             :is-collapse="isCollapse"
           />
@@ -33,7 +38,19 @@ import VTags from './components/VTags.vue'
   }
 })
 export default class Layout extends Vue{
-  private isCollapse = false
+  private isCollapse = true
+
+  private sideWidth = '240px'
+
+  private changMenu(data: boolean){
+    this.isCollapse = data
+
+    if(data){
+      this.sideWidth = '64px'
+    }else{
+      this.sideWidth = '240px'
+    }
+  }
 }
 </script>
 <style lang="less" scoped>
