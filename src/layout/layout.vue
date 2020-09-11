@@ -38,7 +38,7 @@ import VTags from './components/VTags.vue'
   }
 })
 export default class Layout extends Vue{
-  private isCollapse = true
+  private isCollapse = false
 
   private sideWidth = '240px'
 

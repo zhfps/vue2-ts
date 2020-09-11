@@ -97,7 +97,7 @@ import { Component, Vue, Prop} from 'vue-property-decorator'
 @Component
 export default class VMenu extends Vue{
 
-  @Prop({ default: true })  isCollapse!: boolean
+  @Prop({ default: false })  isCollapse!: boolean
 
   private handleOpen(key: string, keyPath: string) {
         console.log(key, keyPath)

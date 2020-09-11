@@ -13,7 +13,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 @Component
 export default class VHeader extends Vue{
-  private isCollapse = true
+  private isCollapse = false
   private menuIcon = 'el-icon-s-fold'
   private  marginLeft = '240px'
   private changeMenu(){
