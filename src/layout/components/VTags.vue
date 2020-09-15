@@ -3,11 +3,12 @@
     <div
       class="v-tag"
       v-for="(page,key) in pages"
-      :key="key"
+      :key="key"      
     >
       <el-tag
-        size="mini"
+        size="mini"        
         closable
+        :effect="page.type"
         @close="colse(page.path)"
         @click="link(page.path)"
       >
@@ -17,14 +18,12 @@
   </div>
 </template>
 <script lang="ts">
-import{Component, Vue}  from 'vue-property-decorator'
+import { Tag } from '@/store/modules/layout';
+import{Component, Vue,Prop}  from 'vue-property-decorator'
 
 @Component
 export default class VTags extends Vue{
-  private pages =[
-    {path: '/test',name: '测试'},
-    {path: '/home',name: '首页'}
-    ]
+  @Prop() pages!: Tag[]
   private colse(path: string): void{
     this.pages.splice(this.pages.findIndex(x=>x.path === path),1)
     const pagesNum = this.pages.length;

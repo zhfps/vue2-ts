@@ -18,7 +18,7 @@
           />
         </el-aside>
         <el-main>
-          <v-tags />
+          <v-tags :pages="tagsList" />
           <router-view />
         </el-main>
       </el-container>
@@ -27,9 +27,12 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import {  namespace } from 'vuex-class';
 import VMenu from './components/VMenu.vue'
 import VHeader from './components/VHeader.vue'
 import VTags from './components/VTags.vue'
+import { Tag } from '@/store/modules/layout';
+const someModule = namespace('Layout')
 @Component({
   components: {
     VMenu,
@@ -39,7 +42,6 @@ import VTags from './components/VTags.vue'
 })
 export default class Layout extends Vue{
   private isCollapse = false
-
   private sideWidth = '240px'
 
   private changMenu(data: boolean){
@@ -51,6 +53,7 @@ export default class Layout extends Vue{
       this.sideWidth = '240px'
     }
   }
+   @someModule.Getter("tagsList") tagsList?: Tag[]
 }
 </script>
 <style lang="less" scoped>

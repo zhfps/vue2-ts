@@ -15,12 +15,18 @@ Vue.use(VueRouter)
       {
         path: '/home',
         name: 'Home',
-        component: Home
+        component: Home,
+        meta:{
+          title: '首页'
+        }
       },
         {
         path: '/test',
         name: 'Test',
-        component: Test
+        component: Test,
+        meta:{
+          title: '测试页'
+        }
       }
     ]
   },
